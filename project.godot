@@ -11,5 +11,13 @@ config_version=5
 [application]
 
 config/name="The Ewok Defense"
+run/main_scene="res://scenes/background.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1200
+window/size/viewport_height=624
+window/size/initial_position_type=0
+window/stretch/mode="canvas_items"
