@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://bheud4v74o1tf"]
+
+[ext_resource type="Texture2D" uid="uid://bam46umi0vxi0" path="res://icons8-up-52.png" id="1_o3fi8"]
+[ext_resource type="Script" path="res://scripts/MarginContainer.gd" id="1_ucfis"]
+[ext_resource type="Texture2D" uid="uid://ciafkhp7nu5x1" path="res://icon.svg" id="2_uyr86"]
+
+[node name="Armas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 10.0
+offset_bottom = 138.0
+grow_horizontal = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 6.14
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_ucfis")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 50
+
+[node name="Piedra" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer/HBoxContainer/Piedra"]
+position = Vector2(15, -31)
+scale = Vector2(0.367188, 0.382813)
+texture = ExtResource("2_uyr86")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Piedra"]
+layout_mode = 2
+text = "009"
+
+[node name="Rama" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Rama"]
+position = Vector2(16, -30)
+texture = ExtResource("1_o3fi8")
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/Rama"]
+layout_mode = 2
+text = "123"
+
+[node name="Lanza" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Lanza"]
+position = Vector2(17, -33)
+texture = ExtResource("1_o3fi8")
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/Lanza"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "123"
