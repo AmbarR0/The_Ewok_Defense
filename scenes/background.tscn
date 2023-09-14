@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://do7qrq5u5qq0k"]
+[gd_scene load_steps=10 format=3 uid="uid://do7qrq5u5qq0k"]
 
 [ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="1_0jf43"]
 [ext_resource type="Texture2D" uid="uid://betwkr48p4hcx" path="res://assets/tileset.png" id="1_jrd7g"]
-[ext_resource type="PackedScene" uid="uid://c46yo2oip06j" path="res://scenes/bandeja_m.tscn" id="3_g1k01"]
+[ext_resource type="PackedScene" path="res://scenes/bandeja_m.tscn" id="3_g1k01"]
 [ext_resource type="PackedScene" uid="uid://bbasvmpmsqwu8" path="res://ewok/scenes/Ewok.tscn" id="4_fhcws"]
+[ext_resource type="PackedScene" uid="uid://40nsd1iv862t" path="res://ewok/scenes/Item2.tscn" id="6_atgfk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gmgik"]
 
@@ -97,3 +98,21 @@ position = Vector2(616, 0)
 position = Vector2(296, -144)
 
 [node name="Ewok" parent="." instance=ExtResource("4_fhcws")]
+scale = Vector2(2, 2)
+
+[node name="Item2" parent="." instance=ExtResource("6_atgfk")]
+position = Vector2(274, 86)
+
+[node name="Item3" parent="." instance=ExtResource("6_atgfk")]
+position = Vector2(101, 123)
+
+[node name="Item4" parent="." instance=ExtResource("6_atgfk")]
+position = Vector2(918, 93)
+
+[node name="Item5" parent="." instance=ExtResource("6_atgfk")]
+position = Vector2(567, 91)
+
+[connection signal="item_picked" from="Item2" to="Ewok" method="_on_item_2_item_picked"]
+[connection signal="item_picked" from="Item3" to="Ewok" method="_on_item_2_item_picked"]
+[connection signal="item_picked" from="Item4" to="Ewok" method="_on_item_2_item_picked"]
+[connection signal="item_picked" from="Item5" to="Ewok" method="_on_item_2_item_picked"]

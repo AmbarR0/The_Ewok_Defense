@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
 var speed = 150.0
-var jump_speed = -600.0
+var jump_speed = -650.0
 var push_force = 80.0
 var direction = 0
 var gravity = 981
 var anim_tree : AnimationNodeStateMachinePlayback
+var items_list = [0,0,0]
 
 func _ready():
 	anim_tree = $AnimationTree.get("parameters/playback")
+	print(items_list)
 	
 func _physics_process(delta):
 	velocity.y += gravity * delta
@@ -38,9 +40,14 @@ func _physics_process(delta):
 		velocity.y = jump_speed
 	
 	move_and_slide()
-
-	for i in get_slide_collision_count():
-		var c = get_slide_collision(i)
-		if c.get_collider() is RigidBody2D:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	
+
+
+func _on_item_item_picked():
+	items_list[0] += 1
+	print(items_list)
+
+
+func _on_item_2_item_picked():
+	items_list[0] += 1
+	print(items_list)
