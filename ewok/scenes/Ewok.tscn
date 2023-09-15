@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bbasvmpmsqwu8"]
+[gd_scene load_steps=27 format=3 uid="uid://bbasvmpmsqwu8"]
 
 [ext_resource type="Texture2D" uid="uid://ch25inj68de41" path="res://ewok/assets/Ewok.png" id="1_dw7it"]
 [ext_resource type="Script" path="res://ewok/scripts/Ewok.gd" id="1_nysys"]
@@ -168,6 +168,9 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lfn3v"]
 animation = &"jump"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dfjf1"]
+animation = &"ouch"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1al6m"]
 animation = &"walk"
 
@@ -184,6 +187,10 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xp6fi"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ocwbg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_se5gb"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2gqeo"]
 states/End/position = Vector2(947, 173)
 states/Start/position = Vector2(184, 173)
@@ -193,10 +200,12 @@ states/idle/node = SubResource("AnimationNodeAnimation_utt0l")
 states/idle/position = Vector2(365, 173)
 states/jump/node = SubResource("AnimationNodeAnimation_lfn3v")
 states/jump/position = Vector2(540, 63)
+states/ouch/node = SubResource("AnimationNodeAnimation_dfjf1")
+states/ouch/position = Vector2(365, 300.83)
 states/walk/node = SubResource("AnimationNodeAnimation_1al6m")
 states/walk/position = Vector2(544, 168.092)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_6dt2i"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_sim2q"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_ksr4d"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_sf5o6"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_tdmlx"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_xp6fi")]
-graph_offset = Vector2(0, 10.0917)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_6dt2i"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_sim2q"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_ksr4d"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_sf5o6"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_tdmlx"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_xp6fi"), "idle", "ouch", SubResource("AnimationNodeStateMachineTransition_ocwbg"), "ouch", "idle", SubResource("AnimationNodeStateMachineTransition_se5gb")]
+graph_offset = Vector2(0, 78.8299)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4m3j"]
 

@@ -44,7 +44,6 @@ func die():
 	timer.stop()
 	tween.tween_property(self, "modulate:a", 0.0, 0.3)
 	tween.tween_callback(self.queue_free)
-	print("position ", number, "  ", position.x , " ", position.y)
 	emit_signal("restart", number)
 
 
@@ -70,7 +69,6 @@ func _on_background_start_items():
 	waitingLife = RandomNumberGenerator.new().randi_range(3, 5)
 	randomN = RandomNumberGenerator.new().randi_range(0, 2)
 
-	print(number)
 	if randomN == 2:
 		rSprite.texture = preload("res://assets/weapons/rama.png")
 	elif randomN == 1:
