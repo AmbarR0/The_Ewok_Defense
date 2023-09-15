@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal changeItems
-
+signal lose_life
 
 var speed = 150.0
 var jump_speed = -650.0
@@ -10,12 +10,14 @@ var direction = 0
 var gravity = 981
 var anim_tree : AnimationNodeStateMachinePlayback
 var items_list = [0,0,0]
-var lifePoints = 5
+var lifePoints = 20
 
 func _ready():
 	anim_tree = $AnimationTree.get("parameters/playback")
 
 func _process(delta):
+
+
 	if Input.is_action_just_pressed("Shoot I1"):
 		if(items_list[0] > 0):
 			items_list[0] -= 1
@@ -64,5 +66,8 @@ func _on_item_2_item_picked(number):
 	
 func _on_hurt_box_area_entered(area):
 	lifePoints -= 1
+	emit_signal("lose_life", lifePoints)
+	if(lifePoints == 0):
+		emit_signal("game_over")
 	print(lifePoints)
 	
