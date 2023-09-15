@@ -70,4 +70,5 @@ func _on_hurt_box_area_entered(area):
 	if(lifePoints <= 0):
 		emit_signal("game_over")
 	print(lifePoints)
+
 	

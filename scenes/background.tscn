@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://do7qrq5u5qq0k"]
+[gd_scene load_steps=12 format=3 uid="uid://do7qrq5u5qq0k"]
 
 [ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="1_0jf43"]
 [ext_resource type="Texture2D" uid="uid://betwkr48p4hcx" path="res://assets/tileset.png" id="1_jrd7g"]
@@ -156,6 +156,9 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(32, 32)
 sources/8 = SubResource("TileSetAtlasSource_f1cks")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej2mk"]
+size = Vector2(1376.13, 28)
+
 [node name="Background" type="Node2D"]
 script = SubResource("GDScript_7i34w")
 
@@ -188,21 +191,53 @@ position = Vector2(296, -144)
 
 [node name="Ewok" parent="." instance=ExtResource("4_fhcws")]
 scale = Vector2(2, 2)
+collision_mask = 33
 
 [node name="Item2" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(274, 86)
 
 [node name="Item3" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(101, 123)
 
 [node name="Item4" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(918, 93)
 
 [node name="Item5" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(567, 91)
 
 [node name="Item6" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(1104, 88)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1219, 184)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ej2mk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 34
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(665, -20)
+shape = SubResource("RectangleShape2D_ej2mk")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+collision_layer = 34
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-33, 178.938)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_ej2mk")
 
 [node name="Timer" type="Timer" parent="."]
 
