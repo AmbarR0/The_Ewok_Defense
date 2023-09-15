@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal changeItems
 
-
 var speed = 150.0
 var jump_speed = -650.0
 var push_force = 80.0
@@ -65,4 +64,5 @@ func _on_item_2_item_picked(number):
 func _on_hurt_box_area_entered(area):
 	lifePoints -= 1
 	print(lifePoints)
+
 	
