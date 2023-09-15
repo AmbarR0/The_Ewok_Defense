@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/top_ui.gd" id="1_goa7w"]
 [ext_resource type="PackedScene" uid="uid://bheud4v74o1tf" path="res://scenes/armas.tscn" id="1_q5vk2"]
 [ext_resource type="PackedScene" uid="uid://baka3tgigcmxa" path="res://scenes/stormtroopers.tscn" id="3_tvc1i"]
-[ext_resource type="PackedScene" uid="uid://dnpo3t7xaxcyb" path="res://scenes/life.tscn" id="4_xohme"]
+[ext_resource type="PackedScene" path="res://scenes/life.tscn" id="4_xohme"]
 [ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="5_vnyvi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jhjx"]
@@ -42,6 +42,7 @@ grow_vertical = 2
 script = ExtResource("1_goa7w")
 
 [node name="Armas" parent="." instance=ExtResource("1_q5vk2")]
+visible = false
 layout_direction = 2
 layout_mode = 1
 offset_left = 167.0
