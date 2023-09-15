@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="1_0jf43"]
 [ext_resource type="Script" path="res://scenes/background.gd" id="1_jlm7c"]
 [ext_resource type="Texture2D" uid="uid://betwkr48p4hcx" path="res://assets/tileset.png" id="1_jrd7g"]
-[ext_resource type="PackedScene" path="res://scenes/bandeja_m.tscn" id="3_g1k01"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_r6mmm"]
+[ext_resource type="PackedScene" uid="uid://c46yo2oip06j" path="res://scenes/bandeja_m.tscn" id="3_g1k01"]
 [ext_resource type="PackedScene" uid="uid://bbasvmpmsqwu8" path="res://ewok/scenes/Ewok.tscn" id="4_fhcws"]
 [ext_resource type="PackedScene" uid="uid://40nsd1iv862t" path="res://ewok/scenes/Item2.tscn" id="6_atgfk"]
 [ext_resource type="PackedScene" uid="uid://bsxd28b33d6ip" path="res://stormtroopers/scenes/Stormtrooper.tscn" id="6_oiobb"]
+[ext_resource type="PackedScene" uid="uid://dln4dtq6gepsm" path="res://ewok/scenes/Item2.tscn" id="6_atgfk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gmgik"]
 
@@ -118,7 +120,21 @@ position = Vector2(567, 91)
 [node name="Stormtrooper" parent="." instance=ExtResource("6_oiobb")]
 position = Vector2(1150, 52)
 
+[node name="Stormtrooper" parent="." instance=ExtResource("6_oiobb")]
+position = Vector2(1150, 52)
+
+[node name="Item6" parent="." instance=ExtResource("6_atgfk")]
+position = Vector2(1104, 88)
+
+[connection signal="startItems" from="." to="Item2" method="_on_background_start_items"]
+[connection signal="startItems" from="." to="Item3" method="_on_background_start_items"]
+[connection signal="startItems" from="." to="Item4" method="_on_background_start_items"]
+[connection signal="startItems" from="." to="Item5" method="_on_background_start_items"]
+[connection signal="startItems" from="." to="Item6" method="_on_background_start_items"]
+[connection signal="changeItems" from="Ewok" to="." method="_on_ewok_change_items"]
 [connection signal="item_picked" from="Item2" to="Ewok" method="_on_item_2_item_picked"]
+[connection signal="restart" from="Item2" to="." method="_on_item_2_restart"]
 [connection signal="item_picked" from="Item3" to="Ewok" method="_on_item_2_item_picked"]
 [connection signal="item_picked" from="Item4" to="Ewok" method="_on_item_2_item_picked"]
 [connection signal="item_picked" from="Item5" to="Ewok" method="_on_item_2_item_picked"]
+[connection signal="item_picked" from="Item6" to="Ewok" method="_on_item_2_item_picked"]

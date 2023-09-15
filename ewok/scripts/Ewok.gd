@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal changeItems
+
+
 var speed = 150.0
 var jump_speed = -650.0
 var push_force = 80.0
@@ -56,11 +59,15 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _on_item_2_item_picked():
-	items_list[0] += 1
-	print(items_list)
 
 
 func _on_hurt_box_area_entered(area):
 	lifePoints -= 1
 	print(lifePoints)
+	
+
+
+func _on_item_2_item_picked(number):
+	items_list[number] += 1
+	print(items_list)
+	emit_signal("changeItems", items_list)
