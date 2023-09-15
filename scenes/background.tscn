@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://do7qrq5u5qq0k"]
+[gd_scene load_steps=13 format=3 uid="uid://do7qrq5u5qq0k"]
 
 [ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="1_0jf43"]
 [ext_resource type="Texture2D" uid="uid://betwkr48p4hcx" path="res://assets/tileset.png" id="1_jrd7g"]
@@ -20,6 +20,8 @@ signal change_life
 @onready var item6 = $Item6
 @onready var timer = $Timer
 
+@onready var bandejaB = $BandejaM2/Bandeja
+@onready var bandejaC = $BandejaM2/Bandeja/CollisionShape2D
 var timeCreateStorm = 3
 
 func _ready():
@@ -31,11 +33,12 @@ func _ready():
 	emit_signal(\"startItems\")
 	timer.start()
 	
-
+var s = 0
+var sw = \"Remove\"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
+	
 func create_stormtrooper():
 	var tstorm = preload(\"res://stormtroopers/scenes/Stormtrooper.tscn\")
 	var s = tstorm.instantiate()
@@ -81,7 +84,7 @@ func _on_item_2_restart(numberItem):
 func _on_timer_timeout():
 	if(timeCreateStorm == 0):
 		create_stormtrooper()
-		timeCreateStorm = 5
+		timeCreateStorm = 1
 	else:
 		timeCreateStorm -= 1
 
@@ -156,6 +159,11 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(32, 32)
 sources/8 = SubResource("TileSetAtlasSource_f1cks")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3d3ub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obaxj"]
+size = Vector2(40, 650)
+
 [node name="Background" type="Node2D"]
 script = SubResource("GDScript_7i34w")
 
@@ -188,23 +196,42 @@ position = Vector2(296, -144)
 
 [node name="Ewok" parent="." instance=ExtResource("4_fhcws")]
 scale = Vector2(2, 2)
+collision_mask = 33
 
 [node name="Item2" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(274, 86)
 
 [node name="Item3" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(101, 123)
 
 [node name="Item4" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(918, 93)
 
 [node name="Item5" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(567, 91)
 
 [node name="Item6" parent="." instance=ExtResource("6_atgfk")]
+visible = false
 position = Vector2(1104, 88)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_3d3ub")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1232, 296)
+shape = SubResource("RectangleShape2D_obaxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-68, 315)
+shape = SubResource("RectangleShape2D_obaxj")
 
 [connection signal="startItems" from="." to="Item2" method="_on_background_start_items"]
 [connection signal="startItems" from="." to="Item3" method="_on_background_start_items"]

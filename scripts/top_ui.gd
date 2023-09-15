@@ -28,7 +28,7 @@ func _ready():
 	nwhite.text = str(0)
 	ngray.text = str(0)
 	nbrown.text = str(0)
-	nlife.text = "X 20"
+	nlife.text = "X 5"
 	labelT.text = str(time)
 	timer.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.

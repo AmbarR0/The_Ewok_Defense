@@ -10,7 +10,7 @@ var direction = 0
 var gravity = 981
 var anim_tree : AnimationNodeStateMachinePlayback
 var items_list = [0,0,0]
-var lifePoints = 3
+var lifePoints = 5
 
 func _ready():
 	anim_tree = $AnimationTree.get("parameters/playback")
