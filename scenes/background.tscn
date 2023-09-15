@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbasvmpmsqwu8" path="res://ewok/scenes/Ewok.tscn" id="4_fhcws"]
 [ext_resource type="PackedScene" uid="uid://40nsd1iv862t" path="res://ewok/scenes/Item2.tscn" id="6_atgfk"]
 [ext_resource type="PackedScene" uid="uid://bsxd28b33d6ip" path="res://stormtroopers/scenes/Stormtrooper.tscn" id="6_oiobb"]
+[ext_resource type="PackedScene" uid="uid://dln4dtq6gepsm" path="res://ewok/scenes/Item2.tscn" id="6_atgfk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gmgik"]
 

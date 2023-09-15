@@ -206,13 +206,14 @@ height = 32.0
 [node name="Ewok" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 7
+collision_layer = 3
 script = ExtResource("1_nysys")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_dw7it")
 hframes = 5
 vframes = 7
-frame = 1
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
