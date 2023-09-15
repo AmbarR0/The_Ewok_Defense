@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bbasvmpmsqwu8"]
+[gd_scene load_steps=24 format=3 uid="uid://bbasvmpmsqwu8"]
 
 [ext_resource type="Texture2D" uid="uid://ch25inj68de41" path="res://ewok/assets/Ewok.png" id="1_dw7it"]
 [ext_resource type="Script" path="res://ewok/scripts/Ewok.gd" id="1_nysys"]
@@ -134,12 +134,28 @@ tracks/1/keys = {
 "values": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
 }
 
+[sub_resource type="Animation" id="Animation_fqew4"]
+resource_name = "ouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 6, 6]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_em35m"]
 _data = {
 "RESET": SubResource("Animation_wx0qk"),
 "fall": SubResource("Animation_tcawb"),
 "idle": SubResource("Animation_fjqfh"),
 "jump": SubResource("Animation_cqv25"),
+"ouch": SubResource("Animation_fqew4"),
 "walk": SubResource("Animation_svv7a")
 }
 
@@ -182,8 +198,14 @@ states/walk/position = Vector2(544, 168.092)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_6dt2i"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_sim2q"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_ksr4d"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_sf5o6"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_tdmlx"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_xp6fi")]
 graph_offset = Vector2(0, 10.0917)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4m3j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j2cmw"]
+height = 32.0
+
 [node name="Ewok" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_nysys")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -204,4 +226,21 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_2gqeo")
 anim_player = NodePath("../AnimationPlayer")
-active = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_w4m3j")
+debug_color = Color(0.737255, 0.45098, 0.372549, 0.419608)
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_j2cmw")
+debug_color = Color(0.623529, 0.529412, 0.188235, 0.419608)
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -7,11 +7,26 @@ var direction = 0
 var gravity = 981
 var anim_tree : AnimationNodeStateMachinePlayback
 var items_list = [0,0,0]
+var lifePoints = 5
 
 func _ready():
 	anim_tree = $AnimationTree.get("parameters/playback")
 	print(items_list)
-	
+
+func _process(delta):
+	if Input.is_action_just_pressed("Shoot I1"):
+		if(items_list[0] > 0):
+			items_list[0] -= 1
+		print(items_list)
+	if Input.is_action_just_pressed("Shoot I2"):
+		if(items_list[1] > 0):
+			items_list[1] -= 1
+		print(items_list)
+	if Input.is_action_just_pressed("Shoot I3"):
+		if(items_list[2] > 0):
+			items_list[2] -= 1
+		print(items_list)
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	if is_on_floor():
@@ -40,14 +55,12 @@ func _physics_process(delta):
 		velocity.y = jump_speed
 	
 	move_and_slide()
-	
-
-
-func _on_item_item_picked():
-	items_list[0] += 1
-	print(items_list)
-
 
 func _on_item_2_item_picked():
 	items_list[0] += 1
 	print(items_list)
+
+
+func _on_hurt_box_area_entered(area):
+	lifePoints -= 1
+	print(lifePoints)
