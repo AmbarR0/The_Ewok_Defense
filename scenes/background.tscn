@@ -88,6 +88,10 @@ func _on_timer_timeout():
 
 func _on_ewok_lose_life(life):
 	emit_signal(\"change_life\", life)
+
+signal game_over
+func _on_ewok_game_over():
+	emit_signal(\"game_over\")
 "
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gmgik"]
@@ -208,6 +212,7 @@ position = Vector2(1104, 88)
 [connection signal="startItems" from="." to="Item5" method="_on_background_start_items"]
 [connection signal="startItems" from="." to="Item6" method="_on_background_start_items"]
 [connection signal="changeItems" from="Ewok" to="." method="_on_ewok_change_items"]
+[connection signal="game_over" from="Ewok" to="." method="_on_ewok_game_over"]
 [connection signal="lose_life" from="Ewok" to="." method="_on_ewok_lose_life"]
 [connection signal="item_picked" from="Item2" to="Ewok" method="_on_item_2_item_picked"]
 [connection signal="item_picked" from="Item3" to="Ewok" method="_on_item_2_item_picked"]

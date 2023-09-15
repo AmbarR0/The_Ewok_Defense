@@ -44,10 +44,10 @@ func _on_background_show_items_in_ui(list_items):
 
 func _on_background_change_life(life):
 	var a = "X " + str(life)
-	if life > 0:
+	if life >= 0:
 		nlife.text = a
 	else:
-		emit_signal("game_over", time)
+		_on_background_game_over()
 
 
 func _on_timer_timeout():
@@ -58,3 +58,8 @@ func _on_timer_timeout():
 
 func _on_menu_button_down():
 	emit_signal("pause")
+
+
+func _on_background_game_over():
+	print("señal", time)
+	emit_signal("game_over", time)

@@ -4,8 +4,8 @@ signal Get_to_game
 signal Close_window
 
 func _on_continue_button_down():
-	emit_signal("Get_to_game")
+	get_tree().change_scene_to_file("res://scenes/control.tscn")
 
 
 func _on_close_button_down():
-	emit_signal("Close_window")
+	get_tree().quit()

@@ -25,6 +25,7 @@ offset_right = 1200.0
 offset_bottom = 72.0
 
 [connection signal="change_life" from="Background" to="TopUI" method="_on_background_change_life"]
+[connection signal="game_over" from="Background" to="TopUI" method="_on_background_game_over"]
 [connection signal="showItemsInUI" from="Background" to="TopUI" method="_on_background_show_items_in_ui"]
 [connection signal="game_over" from="TopUI" to="." method="_on_top_ui_game_over"]
 [connection signal="pause" from="TopUI" to="." method="_on_top_ui_pause"]

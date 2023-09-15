@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1m5oahtqslyv"]
+[gd_scene load_steps=6 format=3 uid="uid://b1m5oahtqslyv"]
 
 [ext_resource type="PackedScene" uid="uid://cpn0s41axp7kd" path="res://scenes/control.tscn" id="1_addal"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rdq3e"]
 [ext_resource type="PackedScene" uid="uid://cmcdci7gjl5k5" path="res://scenes/menu.tscn" id="3_8ek0j"]
 [ext_resource type="PackedScene" uid="uid://ccym4f22ul7ke" path="res://scenes/pause_menu.tscn" id="4_ygrat"]
+[ext_resource type="PackedScene" uid="uid://cl41smlpthw0m" path="res://scenes/last_scene.tscn" id="5_t3ceq"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -23,9 +24,7 @@ layout_mode = 1
 [node name="PauseMenu" parent="." instance=ExtResource("4_ygrat")]
 layout_mode = 1
 
-[connection signal="sendEnd" from="Control" to="." method="_on_control_send_end"]
-[connection signal="sendMenu" from="Control" to="." method="_on_control_send_menu"]
-[connection signal="Close_window" from="Menu" to="." method="_on_menu_close_window"]
-[connection signal="Get_to_game" from="Menu" to="." method="_on_menu_get_to_game"]
-[connection signal="Close_window" from="PauseMenu" to="." method="_on_pause_menu_close_window"]
-[connection signal="Get_to_game" from="PauseMenu" to="." method="_on_pause_menu_get_to_game"]
+[node name="LastScene" parent="." instance=ExtResource("5_t3ceq")]
+layout_mode = 1
+
+[connection signal="sendEnd" from="Control" to="LastScene" method="_on_control_send_end"]

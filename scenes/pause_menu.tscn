@@ -75,16 +75,16 @@ grow_vertical = 2
 
 [node name="Continue" type="Button" parent="Menu/TextureRect/Control/MenuButton"]
 layout_mode = 0
-offset_left = 120.5
-offset_top = 133.5
-offset_right = 344.5
-offset_bottom = 177.5
+offset_left = 40.5
+offset_top = 141.5
+offset_right = 429.5
+offset_bottom = 185.5
 theme_override_fonts/font = ExtResource("4_oyrku")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_48407")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fq4h8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ls33d")
-text = "Iniciar Juego
+text = "Continuar con el Juego
 "
 
 [node name="Close" type="Button" parent="Menu/TextureRect/Control/MenuButton"]
