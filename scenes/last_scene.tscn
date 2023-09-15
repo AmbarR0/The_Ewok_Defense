@@ -109,4 +109,17 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ihwnf")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hb7og")
 text = "Salir"
 
+[node name="Retry" type="Button" parent="BoxContainer/TextureRect/TextureRect"]
+offset_left = 144.5
+offset_top = 157.5
+offset_right = 326.5
+offset_bottom = 201.5
+theme_override_fonts/font = ExtResource("3_t0qit")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dmhvr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ihwnf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hb7og")
+text = "Reintentar"
+
 [connection signal="button_down" from="BoxContainer/TextureRect/TextureRect/Leave" to="." method="_on_leave_button_down"]
+[connection signal="button_down" from="BoxContainer/TextureRect/TextureRect/Retry" to="." method="_on_retry_button_down"]

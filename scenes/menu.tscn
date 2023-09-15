@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmcdci7gjl5k5"]
+[gd_scene load_steps=9 format=3 uid="uid://cmcdci7gjl5k5"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_a2c3m"]
 [ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="1_v2h4c"]
@@ -27,6 +27,10 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfic3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w33ir"]
+font = ExtResource("4_pr4kn")
+font_size = 28
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -76,9 +80,9 @@ grow_vertical = 2
 [node name="Start" type="Button" parent="Menu/TextureRect/Control/MenuButton"]
 layout_mode = 0
 offset_left = 120.5
-offset_top = 133.5
+offset_top = 157.5
 offset_right = 344.5
-offset_bottom = 177.5
+offset_bottom = 201.5
 theme_override_fonts/font = ExtResource("4_pr4kn")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mewr8")
@@ -99,6 +103,17 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_mewr8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ab47u")
 theme_override_styles/focus = SubResource("StyleBoxFlat_kfic3")
 text = "Salir"
+
+[node name="Label" type="Label" parent="Menu/TextureRect/Control/MenuButton"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.5
+offset_top = 69.5
+offset_right = 380.5
+offset_bottom = 108.5
+text = "The Ewok Escape"
+label_settings = SubResource("LabelSettings_w33ir")
 
 [connection signal="button_down" from="Menu/TextureRect/Control/MenuButton/Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="Menu/TextureRect/Control/MenuButton/Leave" to="." method="_on_leave_button_down"]
