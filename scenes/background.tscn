@@ -11,7 +11,8 @@ script/source = "extends Node2D
 
 signal showItemsInUI
 signal startItems
-
+signal change 
+signal change_life
 @onready var item2 = $Item2
 @onready var item3 = $Item3
 @onready var item4 = $Item4
@@ -83,6 +84,10 @@ func _on_timer_timeout():
 		timeCreateStorm = 5
 	else:
 		timeCreateStorm -= 1
+
+
+func _on_ewok_lose_life(life):
+	emit_signal(\"change_life\", life)
 "
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gmgik"]
@@ -203,6 +208,7 @@ position = Vector2(1104, 88)
 [connection signal="startItems" from="." to="Item5" method="_on_background_start_items"]
 [connection signal="startItems" from="." to="Item6" method="_on_background_start_items"]
 [connection signal="changeItems" from="Ewok" to="." method="_on_ewok_change_items"]
+[connection signal="lose_life" from="Ewok" to="." method="_on_ewok_lose_life"]
 [connection signal="item_picked" from="Item2" to="Ewok" method="_on_item_2_item_picked"]
 [connection signal="item_picked" from="Item3" to="Ewok" method="_on_item_2_item_picked"]
 [connection signal="item_picked" from="Item4" to="Ewok" method="_on_item_2_item_picked"]

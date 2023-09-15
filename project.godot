@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="The Ewok Defense"
-run/main_scene="res://scenes/control.tscn"
+config/name="The Ewok Escape"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
