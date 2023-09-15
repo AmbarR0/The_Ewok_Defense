@@ -19,6 +19,6 @@ func _physics_process(delta):
 	else:
 		anim_tree.travel("walk") 
 		direction = -1
-		velocity.x = direction * 2
+		velocity.x = direction * SPEED
 	move_and_slide()
 

@@ -17,6 +17,9 @@ var picked = false
 var waitingLife = RandomNumberGenerator.new().randi_range(3, 5)
 var randomN = RandomNumberGenerator.new().randi_range(0, 2)
 
+func _ready():
+	timer = $Timer
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -75,3 +78,4 @@ func _on_background_start_items():
 	else:
 		rSprite.texture = preload("res://assets/weapons/lanza.png")
 	timer = $Timer
+

@@ -14,7 +14,6 @@ var lifePoints = 5
 
 func _ready():
 	anim_tree = $AnimationTree.get("parameters/playback")
-	print(items_list, "wiwi")
 
 func _process(delta):
 	if Input.is_action_just_pressed("Shoot I1"):
@@ -59,22 +58,11 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-
-
 func _on_item_2_item_picked(number):
 	items_list[number] += 1
-	print(items_list)
 	emit_signal("changeItems", items_list)
-
-
-
+	
 func _on_hurt_box_area_entered(area):
 	lifePoints -= 1
 	print(lifePoints)
 	
-
-
-func _on_item_2_item_picked(number):
-	items_list[number] += 1
-	print(items_list)
-	emit_signal("changeItems", items_list)
